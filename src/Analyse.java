@@ -9,7 +9,7 @@ public class Analyse {
 
     public Analyse() throws FileNotFoundException {
         this.map = new TreeMap(); // nøgler sorteres
-        this.file = new FileInputStream(new File("C:\\Users\\Wenmin Ye\\Downloads\\covid 19 data - Ark1.csv"));
+        this.file = new FileInputStream(new File("C:\\Users\\wenmi\\Desktop\\Studie\\Untitled spreadsheet - Sheet1.csv"));
     }
 
     public Map<String, Set<Country>> getMap() {
@@ -34,20 +34,21 @@ public class Analyse {
                 map.put(CountryToAdd.getContinent(), new TreeSet<>(List.of(CountryToAdd)));
             }
         }
-        // TODO
-        // Indlæs hver linje i filen, skip linje 1
-        // Parse relevante data og opret et country objekt
-        // Hvis “continent” nøglen ikke eksisterer i map oprettes en ny nøgle
-        // med et tomt TreeSet og Country objektet tilføjes til set-et
-        // Hvis “continent” nøglen eksisterer i map tilføjes Country objektet
-        // til set-et
-
-        /*public Map<String, Integer> totalCasesPrContinent() {
-            // TODo
-            // Metoden skal returnere et map, der indeholder “continent” som nøgle
-            // og det samlede antal tilfælde for hvert kontinent som værdi
+    }
+    public Map<String, Integer> totalCasesPrContinent() {
+        Map<String, Integer> returnlist = new HashMap<String, Integer>();
+        int cases = 0;
+        for (Map.Entry<String, Set<Country>> entry : map.entrySet()){
+            String key = entry.getKey();
+            Set<Country> countries = entry.getValue();
+            for (Country country : countries){
+                cases += country.getTotal_cases();
+            }
+            returnlist.put(key, cases);
         }
-
-         */
+        return returnlist;
+        // TODo
+        // Metoden skal returnere et map, der indeholder “continent” som nøgle
+        // og det samlede antal tilfælde for hvert kontinent som værdi
     }
 }
