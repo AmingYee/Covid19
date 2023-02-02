@@ -1,5 +1,9 @@
+import java.io.FileNotFoundException;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public static void main(String[] args) throws FileNotFoundException {
+        Analyse anal = new Analyse();
+        anal.readFile();
+        System.out.println(anal.getMap());
     }
 }
