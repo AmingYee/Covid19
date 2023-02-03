@@ -35,20 +35,30 @@ public class Analyse {
             }
         }
     }
+
     public Map<String, Integer> totalCasesPrContinent() {
         Map<String, Integer> returnlist = new HashMap<String, Integer>();
         int cases = 0;
-        for (Map.Entry<String, Set<Country>> entry : map.entrySet()){
+        int continents = 0;
+        for (Map.Entry<String, Set<Country>> entry : map.entrySet()) {
             String key = entry.getKey();
             Set<Country> countries = entry.getValue();
-            for (Country country : countries){
+            for (Country country : countries) {
                 cases += country.getTotal_cases();
             }
             returnlist.put(key, cases);
+            if (returnlist.size() > continents) {
+                cases = 0;
+                continents++;
+            }
         }
         return returnlist;
         // TODo
         // Metoden skal returnere et map, der indeholder “continent” som nøgle
         // og det samlede antal tilfælde for hvert kontinent som værdi
+    }
+
+    public String percentDenmark() {
+       return null;
     }
 }

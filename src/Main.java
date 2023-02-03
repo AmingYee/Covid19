@@ -6,5 +6,6 @@ public class Main {
         anal.readFile();
         //System.out.println(anal.getMap());
         System.out.println(anal.totalCasesPrContinent());
+        System.out.println(anal.percentDenmark());
     }
 }
